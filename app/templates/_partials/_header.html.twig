@@ -1,0 +1,28 @@
+<nav id="site-header" class="row justify-content-between align-items-center">
+    <div class="logo col-auto">
+        <a href="{{ path('app_home') }}"><img src="{{ asset('images/logo-penn-ar-bed.png') }}" alt="logo du site" /></a>
+    </div>
+    <div class="col-auto m-0">
+        <button class="btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop" aria-controls="offcanvasTop">
+                <svg class="icon icon-check" width="50" height="50" >
+                    <use href="{{ asset('images/sprites.svg') }}#burger"></use>
+                </svg>
+            </button>
+            <div class="offcanvas offcanvas-top" tabindex="-1" id="offcanvasTop" aria-labelledby="offcanvasTopLabel">
+              <div class="offcanvas-header">
+                <h5 class="offcanvas-title fs-3 text-uppercase fw-semibold" id="offcanvasTopLabel">Penn Ar Bed</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+              </div>
+              <div class="offcanvas-body">
+                  <ul class="navbar-nav">
+                      <li><a class="text-decoration-none fs-3" href="{{ path('app_home') }}">Accueil</a></li>
+                      <li><a class="text-decoration-none fs-3" href="{{ path('app_about') }}">A propos de nous</a></li>
+                      <li><a class="text-decoration-none fs-3" href="{{ path('app_action') }}">Ce que nous faisons</a></li>
+                      <li><a class="text-decoration-none fs-3" href="{{ path('app_home') }}">Mentions Legales</a></li>
+                      <li><a class="text-decoration-none fs-3" href="{{ path('app_home') }}">Nous soutenir</a></li>
+                      <li><a class="text-decoration-none fs-3" href="{{ path('app_home') }}">Actualités</a></li>
+                  </ul>
+              </div>
+            </div>
+    </div>
+</nav>

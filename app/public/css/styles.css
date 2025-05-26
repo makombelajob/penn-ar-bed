@@ -1,0 +1,11 @@
+body{
+    header{
+        nav#site-header{
+            .logo{
+                img{
+                    width: 100px;
+                }
+            }
+        }
+    }
+}

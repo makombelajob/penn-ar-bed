@@ -1,0 +1,111 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}penn_ar_bed{% endblock %}
+
+{% block body %}
+    <main class="container">
+        <section class="row">
+            <div class="col-12 text-center">
+                <h1 class="fs-1 text-uppercase text-primary my-3 fw-semibold">Penn Ar Bed</h1>
+            </div>
+            <div id="carouselExampleIndicators" class="carousel slide">
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0"
+                            class="active" aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+                            aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+                            aria-label="Slide 3"></button>
+                </div>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="{{ asset('images/real/image_test_1.png') }}" class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="{{ asset('images/real/image_test_2.png') }}" class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="{{ asset('images/real/image_test_3.png') }}" class="d-block w-100" alt="...">
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+                        data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+                        data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </section>
+        <section class="row" id="about">
+            <div class="col-12 text-center">
+                <h2 class="fs-2 text-uppercase text-secondary my-3">A propos de nous</h2>
+            </div>
+            <div class="col-12">
+                <div class="alert alert-primary" role="alert">
+                    <div>
+                        <img src="{{ asset('images/real/image_test_1.png') }}" class="w-100" alt="...">
+                    </div>
+                    <div class="text-center">
+                        <h4 class="fs-3 text-uppercase text-black my-3">Historique</h4>
+                    </div>
+                    <p class="fs-3">
+                        L’association accompagne le public étranger, d’origine africaine,
+                        vers l’intégration et l’inclusion sociale en France...
+                    </p>
+                    <div class="text-center">
+                        <a class="btn btn-primary" href="{{ path('app_about') }}">Voir Plus</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="row" id="about">
+            <div class="col-12 text-center">
+                <h2 class="fs-2 text-uppercase text-secondary my-3">Ce que nous faisons</h2>
+            </div>
+            <div class="col-12">
+                <div class="alert alert-primary" role="alert">
+                    <div>
+                        <img src="{{ asset('images/real/image_test_1.png') }}" class="w-100" alt="...">
+                    </div>
+                    <div class="text-center">
+                        <h4 class="fs-3 text-uppercase text-black my-3">Nos actions</h4>
+                    </div>
+                    <div>
+                        <p class="fs-3">
+                            Facilite le retour des étudiants
+                            étrangers diplômés porteurs de projets à réaliser en Afrique...
+                        </p>
+                    </div>
+                    <div class="text-center">
+                        <a class="btn btn-primary" href="{{ path('app_about') }}">Voir Plus</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="row" id="contact">
+            <div class="col-12  text-center">
+                <h2 class="fs-2 text-uppercase text-secondary my-3">Contact</h2>
+            </div>
+            <div class="col-11 m-auto alert alert-danger mb-3" role="alert">
+                {{ form_start(form) }}
+                    <div class="mb-3 text-uppercase">
+                        {{ form_row(form.email) }}
+                    </div>
+                    <div class="mb-3 text-uppercase">
+                        {{ form_row(form.subject) }}
+                    </div>
+                    <div class="mb-3 text-uppercase">
+                        {{ form_row(form.message) }}
+                    </div>
+                    <div class="mb-3 text-uppercase text-center">
+                        {{ form_row(form.send) }}
+                    </div>
+                {{ form_end(form) }}
+            </div>
+        </section>
+    </main>
+{% endblock %}
