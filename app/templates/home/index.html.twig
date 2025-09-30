@@ -1,12 +1,15 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}penn_ar_bed{% endblock %}
+{% block title %}
+    Penn Ar Bed Solidarité
+{% endblock %}
+
 
 {% block body %}
     <main class="container">
         <section class="row">
             <div class="col-12 text-center">
-                <h1 class="fs-1 text-uppercase text-primary my-3 fw-semibold">Penn Ar Bed</h1>
+                <h1 class="fs-1 text-uppercase text-primary my-3 fw-semibold">Penn Ar Bed Solidarité</h1>
             </div>
             <div id="carouselExampleIndicators" class="carousel slide">
                 <div class="carousel-indicators">
@@ -50,11 +53,14 @@
                         <img src="{{ asset('images/real/image_test_1.png') }}" class="w-100" alt="...">
                     </div>
                     <div class="text-center">
-                        <h4 class="fs-3 text-uppercase text-black my-3">Historique</h4>
+                        <h4 class="fs-3 text-uppercase text-black my-3">Nos missions</h4>
                     </div>
                     <p class="fs-3">
-                        L’association accompagne le public étranger, d’origine africaine,
-                        vers l’intégration et l’inclusion sociale en France...
+                       <ul>
+                            <li>Accompagner les personnes d’origine africaine dans leur parcours d’intégration en France</li>
+                            <li>Soutenir les étudiants porteurs de projets pour un retour actif et utile en Afrique</li>
+                            <li>Renforcer les capacités des partenaires locaux pour un développement durable et autonome</li>
+                        </ul>
                     </p>
                     <div class="text-center">
                         <a class="btn btn-primary" href="{{ path('app_about') }}">Voir Plus</a>
@@ -64,21 +70,69 @@
         </section>
         <section class="row" id="about">
             <div class="col-12 text-center">
-                <h2 class="fs-2 text-uppercase text-secondary my-3">Ce que nous faisons</h2>
+                <h2 class="fs-2 text-uppercase text-secondary my-3">Où nous agissons</h2>
             </div>
             <div class="col-12">
                 <div class="alert alert-primary" role="alert">
                     <div>
+                        <p class="fs-3">
+                            <ul>
+                                <li><strong>En France :</strong> principalement en Bretagne</li>
+                                <li><strong>En Afrique :</strong> dans le Bassin du Congo, avec une ouverture vers d’autres régions selon les besoins</li>
+                            </ul>
+                        </p>
+                    </div>
+                    <div class="text-center">
+                        <a class="btn btn-primary" href="{{ path('app_about') }}">Voir Plus</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="row" id="actions">
+            <div class="col-12 text-center">
+                <h2 class="fs-2 text-uppercase text-secondary my-3">Nos actions en France</h2>
+            </div>
+            <div class="col-12">
+                <div class="alert alert-secondary" role="alert">
+                    {# <div>
                         <img src="{{ asset('images/real/image_test_1.png') }}" class="w-100" alt="...">
                     </div>
                     <div class="text-center">
                         <h4 class="fs-3 text-uppercase text-black my-3">Nos actions</h4>
-                    </div>
+                    </div> #}
                     <div>
-                        <p class="fs-3">
-                            Facilite le retour des étudiants
-                            étrangers diplômés porteurs de projets à réaliser en Afrique...
-                        </p>
+                        <ul>
+                            <li>Accueil & écoute des personnes en situation de précarité</li>
+                            <li>Ateliers d’insertion sociale et professionnelle</li>
+                            <li>Aide administrative et accompagnement vers les droits</li>
+                            <li>Animations interculturelles et sensibilisation</li>
+                        </ul>
+                    </div>
+                    <div class="text-center">
+                        <a class="btn btn-primary" href="{{ path('app_about') }}">Voir Plus</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="row" id="actions">
+            <div class="col-12 text-center">
+                <h2 class="fs-2 text-uppercase text-secondary my-3">Nos actions en Afrique</h2>
+            </div>
+            <div class="col-12">
+                <div class="alert alert-secondary" role="alert">
+                    {# <div>
+                        <img src="{{ asset('images/real/image_test_1.png') }}" class="w-100" alt="...">
+                    </div>
+                    <div class="text-center">
+                        <h4 class="fs-3 text-uppercase text-black my-3">Nos actions</h4>
+                    </div> #}
+                    <div>
+                        <ul>
+                            <li>Appui aux initiatives locales dans les domaines de la santé, de l’éducation, de l’agriculture et de l’environnement</li>
+                            <li>Promotion du microcrédit et de l’autonomisation des femmes</li>
+                            <li>Jumelage et coopération entre organisations africaines et européennes</li>
+                            <li>Interventions d’urgence et soutien aux populations vulnérables</li>
+                        </ul>
                     </div>
                     <div class="text-center">
                         <a class="btn btn-primary" href="{{ path('app_about') }}">Voir Plus</a>
