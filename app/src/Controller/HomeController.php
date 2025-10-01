@@ -45,6 +45,7 @@ final class HomeController extends AbstractController
             $entityManagerInterface->persist($form->getData());
             $entityManagerInterface->flush();
             $this->addFlash('success', 'Formulaire envoyé');
+            return $this->redirectToRoute('app_home');
         }
         return $this->render('home/volunteers.html.twig', compact('form'));
     }
@@ -58,6 +59,8 @@ final class HomeController extends AbstractController
             $entityManagerInterface->persist($form->getData());
             $entityManagerInterface->flush();
             $this->addFlash('success', 'Formulaire envoyé');
+            return $this->redirectToRoute('app_home');
+            
         }
         return $this->render('home/partners.html.twig', compact('form'));
     }

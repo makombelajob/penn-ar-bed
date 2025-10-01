@@ -5,8 +5,15 @@
 {% endblock %}
 
 {% block body %}
-	<main
-		class="container">
+	<main class="container">
+		{# Affichage des messages flash #}
+		{% for label, messages in app.flashes %}
+    		{% for message in messages %}
+        		<div class="alert alert-{{ label }}">
+            		{{ message }}
+        		</div>
+    		{% endfor %}
+		{% endfor %}
 
 		<!-- Section: Carrousel -->
 		<section class="row">
