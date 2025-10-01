@@ -4,9 +4,11 @@
 	Penn Ar Bed Solidarité
 {% endblock %}
 
-
 {% block body %}
-	<main class="container">
+	<main
+		class="container">
+
+		<!-- Section: Carrousel -->
 		<section class="row">
 			<div class="col-12 text-center">
 				<h1 class="fs-1 text-uppercase text-primary my-3 fw-semibold">Penn Ar Bed Solidarité</h1>
@@ -19,13 +21,13 @@
 				</div>
 				<div class="carousel-inner">
 					<div class="carousel-item active">
-						<img src="{{ asset('images/real/image_test_1.png') }}" class="d-block w-100" alt="...">
+						<img src="{{ asset('images/real/image_test_1.png') }}" class="d-block w-100" alt="Photo d'accueil de Penn Ar Bed Solidarité">
 					</div>
 					<div class="carousel-item">
-						<img src="{{ asset('images/real/image_test_2.png') }}" class="d-block w-100" alt="...">
+						<img src="{{ asset('images/real/image_test_2.png') }}" class="d-block w-100" alt="Image d'illustration des actions en France">
 					</div>
 					<div class="carousel-item">
-						<img src="{{ asset('images/real/image_test_3.png') }}" class="d-block w-100" alt="...">
+						<img src="{{ asset('images/real/image_test_3.png') }}" class="d-block w-100" alt="Image d'illustration des actions en Afrique">
 					</div>
 				</div>
 				<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
@@ -38,6 +40,8 @@
 				</button>
 			</div>
 		</section>
+
+		<!-- Section: A propos de nous -->
 		<section class="row" id="about">
 			<div class="col-12 text-center">
 				<h2 class="fs-2 text-uppercase text-secondary my-3">A propos de nous</h2>
@@ -45,41 +49,43 @@
 			<div class="col-12">
 				<div class="alert alert-primary" role="alert">
 					<div>
-						<img src="{{ asset('images/real/image_test_1.png') }}" class="w-100" alt="...">
+						<img src="{{ asset('images/real/image_test_1.png') }}" class="w-100" alt="Photo illustrant nos missions">
 					</div>
 					<div class="text-center">
 						<h4 class="fs-3 text-uppercase text-black my-3">Nos missions</h4>
 					</div>
-					<p class="fs-3">
+					<div class="fs-3">
 						<ul>
 							<li>Accompagner les personnes d’origine africaine dans leur parcours d’intégration en France</li>
 							<li>Soutenir les étudiants porteurs de projets pour un retour actif et utile en Afrique</li>
 							<li>Renforcer les capacités des partenaires locaux pour un développement durable et autonome</li>
 						</ul>
-					</p>
+					</div>
 					<div class="text-center">
 						<a class="btn btn-primary" href="{{ path('app_about') }}">Voir Plus</a>
 					</div>
 				</div>
 			</div>
 		</section>
-		<section class="row" id="about">
+
+		<!-- Section: Où nous agissons -->
+		<section class="row" id="locations">
 			<div class="col-12 text-center">
 				<h2 class="fs-2 text-uppercase text-secondary my-3">Où nous agissons</h2>
 			</div>
 			<div class="col-12">
 				<div class="alert alert-primary" role="alert">
-					<div>
-						<p class="fs-3">
-							<ul>
-								<li>
-									<strong>En France :</strong>
-									principalement en Bretagne</li>
-								<li>
-									<strong>En Afrique :</strong>
-									dans le Bassin du Congo, avec une ouverture vers d’autres régions selon les besoins</li>
-							</ul>
-						</p>
+					<div class="fs-3">
+						<ul>
+							<li>
+								<strong>En France :</strong>
+								principalement en Bretagne
+							</li>
+							<li>
+								<strong>En Afrique :</strong>
+								dans le Bassin du Congo, avec une ouverture vers d’autres régions selon les besoins
+							</li>
+						</ul>
 					</div>
 					<div class="text-center">
 						<a class="btn btn-primary" href="{{ path('app_about') }}">Voir Plus</a>
@@ -87,6 +93,8 @@
 				</div>
 			</div>
 		</section>
+
+		<!-- Section: Nos actions -->
 		<section class="row" id="actions">
 			<article>
 				<div class="col-12 text-center">
@@ -129,6 +137,8 @@
 				</div>
 			</article>
 		</section>
+
+		<!-- Section: Nos valeurs -->
 		<section class="row" id="values">
 			<div class="col-12 text-center">
 				<h2 class="fs-2 text-uppercase text-secondary my-3">Nos Valeurs</h2>
@@ -137,33 +147,23 @@
 				<div class="alert alert-secondary" role="alert">
 					<div>
 						<h3>Respect des différences</h3>
-						<p>
-							C’est la base de tout. Nous croyons que chaque culture, chaque parcours, chaque identité enrichit notre société. ➡ Ton slogan l’exprime parfaitement : “Le respect des différences fait de nous tous des gagnants.”
-						</p>
+						<p>C’est la base de tout. Nous croyons que chaque culture, chaque parcours, chaque identité enrichit notre société. Ton slogan l’exprime parfaitement : “Le respect des différences fait de nous tous des gagnants.”</p>
 					</div>
 					<div>
 						<h3>Autonomisation</h3>
-						<p>
-							Nous ne faisons pas “à la place de”, nous faisons “avec”. ➡ Cela signifie aider les personnes et les communautés à devenir actrices de leur propre développement — en France comme en Afrique.
-						</p>
+						<p>Nous ne faisons pas “à la place de”, nous faisons “avec”. Cela signifie aider les personnes et les communautés à devenir actrices de leur propre développement — en France comme en Afrique.</p>
 					</div>
 					<div>
 						<h3>Développement durable</h3>
-						<p>
-							Nos projets visent un impact durable : éducation, santé, agriculture, environnement… ➡ L’objectif est de répondre aux besoins d’aujourd’hui sans compromettre ceux de demain.
-						</p>
+						<p>Nos projets visent un impact durable : éducation, santé, agriculture, environnement… L’objectif est de répondre aux besoins d’aujourd’hui sans compromettre ceux de demain.</p>
 					</div>
 					<div>
 						<h3>Droits humains et dignité</h3>
-						<p>
-							Chaque personne mérite d’être traitée avec respect, d’avoir accès à ses droits et de vivre dans la dignité. ➡ Nous agissons pour l’inclusion, la justice sociale et la défense des plus vulnérables.
-						</p>
+						<p>Chaque personne mérite d’être traitée avec respect, d’avoir accès à ses droits et de vivre dans la dignité. Nous agissons pour l’inclusion, la justice sociale et la défense des plus vulnérables.</p>
 					</div>
 					<div>
 						<h3>Solidarité Internationale</h3>
-						<p>
-							Nous créons des ponts entre la Bretagne et l’Afrique Centrale. ➡ L’idée est de partager les savoirs, les ressources et les expériences pour construire ensemble un avenir plus juste
-						</p>
+						<p>Nous créons des ponts entre la Bretagne et l’Afrique Centrale. L’idée est de partager les savoirs, les ressources et les expériences pour construire ensemble un avenir plus juste.</p>
 					</div>
 					<div class="text-center">
 						<a class="btn btn-primary" href="{{ path('app_about') }}">Voir Plus</a>
@@ -171,16 +171,16 @@
 				</div>
 			</div>
 		</section>
-		<section class="row" id="engaged">
+
+		<!-- Section: Notre engagement -->
+		<section class="row" id="engagement">
 			<div class="col-12 text-center">
 				<h2 class="fs-2 text-uppercase text-secondary my-3">Notre engagement</h2>
 			</div>
 			<div class="col-12">
 				<div class="alert alert-secondary" role="alert">
 					<div>
-						<p>
-							Chez Penn Ar Bed Solidarité, nous croyons que le respect des différences fait de nous tous des gagnants. Notre engagement se traduit par des actions concrètes :
-						</p>
+						<p>Chez Penn Ar Bed Solidarité, nous croyons que le respect des différences fait de nous tous des gagnants. Notre engagement se traduit par des actions concrètes :</p>
 						<ul>
 							<li>Agir pour l’inclusion des personnes d’origine africaine en France</li>
 							<li>Soutenir les porteurs de projets en Afrique Centrale</li>
@@ -195,35 +195,30 @@
 				</div>
 			</div>
 		</section>
-        <section class="row" id="engaged">
-            <div class="col-12 text-center">
-                <h2 class="fs-2 text-uppercase text-secondary my-3">Siège Social</h2>
-            </div>
-            <div class="col-12">
-                <div class="alert alert-secondary" role="alert">
-                    <div class="ratio ratio-16x9 mx-auto" style="max-width: 800px;">
-                        <iframe 
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2612123456789!2d-4.493456!3d48.390123!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x481cc5b6fbdc1234%3A0xabcdef123456!2s3%20Rue%20Gabriel%20Faur%C3%A9%2C%2029200%20Brest%2C%20France!5e0!3m2!1sfr!2sfr!4v1696161234567!5m2!1sfr!2sfr" 
-                            style="border:0;" 
-                            allowfullscreen="" 
-                            loading="lazy" 
-                            referrerpolicy="no-referrer-when-downgrade">
-                        </iframe>
-                    </div>
-                    <div class="mt-2">   
-                        <p>
-                            3 Rue Gabriel Fauré, 29200 Brest, France 
-                            <span>
-                                📞 Contactez-nous pour en savoir plus ou rejoindre nos actions !
-                            </span>
-                        </p>
-                    </div>
-                </div>
-            </div>
-</section>
 
+		<!-- Section: Siège social -->
+		<section class="row" id="headquarters">
+			<div class="col-12 text-center">
+				<h2 class="fs-2 text-uppercase text-secondary my-3">Siège Social</h2>
+			</div>
+			<div class="col-12">
+				<div class="alert alert-secondary" role="alert">
+					<div class="ratio ratio-16x9 mx-auto" style="max-width: 800px;">
+						<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2612123456789!2d-4.493456!3d48.390123!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x481cc5b6fbdc1234%3A0xabcdef123456!2s3%20Rue%20Gabriel%20Faur%C3%A9%2C%2029200%20Brest%2C%20France!5e0!3m2!1sfr!2sfr!4v1696161234567!5m2!1sfr!2sfr" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+					</div>
+					<div class="mt-2">
+						<p>
+							3 Rue Gabriel Fauré, 29200 Brest, France
+							<span>📞 Contactez-nous pour en savoir plus ou rejoindre nos actions !</span>
+						</p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Section: Contact -->
 		<section class="row" id="contact">
-			<div class="col-12  text-center">
+			<div class="col-12 text-center">
 				<h2 class="fs-2 text-uppercase text-secondary my-3">Contact</h2>
 			</div>
 			<div class="col-11 m-auto alert alert-danger mb-3" role="alert">
@@ -243,5 +238,7 @@
 				{{ form_end(form) }}
 			</div>
 		</section>
+
 	</main>
 {% endblock %}
+

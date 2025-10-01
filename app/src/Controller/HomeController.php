@@ -3,7 +3,10 @@
 namespace App\Controller;
 
 use App\Entity\Message;
+use App\Entity\Volunteers;
 use App\Form\ContactForm;
+use App\Form\PartnersType;
+use App\Form\VolunteersType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -34,15 +37,29 @@ final class HomeController extends AbstractController
     }
 
     #[Route('/benevole', name: 'app_volunteers')]
-    public function volunteers(): Response
+    public function volunteers(Request $request, EntityManagerInterface $entityManagerInterface): Response
     {
-        return $this->render('home/volunteers.html.twig');
+        $form = $this->createForm(VolunteersType::class);
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $entityManagerInterface->persist($form->getData());
+            $entityManagerInterface->flush();
+            $this->addFlash('success', 'Formulaire envoyé');
+        }
+        return $this->render('home/volunteers.html.twig', compact('form'));
     }
 
-    #[Route('/partenariat', name: 'app_paterns')]
-    public function paterns(): Response
+    #[Route('/partenariat', name: 'app_partners')]
+    public function partners(Request $request, EntityManagerInterface $entityManagerInterface): Response
     {
-        return $this->render('home/paterns.html.twig');
+        $form = $this->createForm(PartnersType::class);
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $entityManagerInterface->persist($form->getData());
+            $entityManagerInterface->flush();
+            $this->addFlash('success', 'Formulaire envoyé');
+        }
+        return $this->render('home/partners.html.twig', compact('form'));
     }
 
     #[Route('/faire-un-don', name: 'app_gifts')]
