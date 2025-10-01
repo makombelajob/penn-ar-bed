@@ -6,7 +6,8 @@ body header nav#site-header {
   padding: 1rem;
 }
 body header nav#site-header .logo img {
-  width: 100px;
+  width: 100%;
+  max-width: 100px;
   height: auto;
 }
 body header nav#site-header .btn {
@@ -35,7 +36,6 @@ body header nav#site-header .offcanvas {
   border-top: 3px solid #007bff;
   padding: 1rem;
   z-index: 1050;
-  display: block;
 }
 body header nav#site-header .offcanvas .offcanvas-header {
   border-bottom: 1px solid #ddd;
@@ -47,13 +47,12 @@ body header nav#site-header .offcanvas .offcanvas-header .offcanvas-title {
   font-weight: bold;
 }
 body header nav#site-header .offcanvas .offcanvas-header .btn-close {
-  background: none;
-  border: none;
-  font-size: 1.2rem;
-  color: #333;
+  width: 1.5rem;
+  height: 1.5rem;
+  opacity: 0.75;
 }
 body header nav#site-header .offcanvas .offcanvas-header .btn-close:hover {
-  color: #007bff;
+  opacity: 1;
 }
 body header nav#site-header .offcanvas .offcanvas-body {
   display: flex;
@@ -122,7 +121,7 @@ body header nav#site-header .offcanvas .offcanvas-body ul.navbar-nav li a:hover 
   #site-header .offcanvas .offcanvas-body ul.navbar-nav li a {
     font-size: 1rem;
     font-weight: 500;
-    color: #1f1f1f !important;
+    color: #1f1f1f;
     text-decoration: none;
   }
   #site-header .offcanvas .offcanvas-body ul.navbar-nav li a:hover {

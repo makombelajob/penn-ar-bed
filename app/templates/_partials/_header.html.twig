@@ -1,28 +1,41 @@
 <nav id="site-header" class="row justify-content-between align-items-center">
+    <!-- Logo section -->
     <div class="logo col-auto">
-        <a href="{{ path('app_home') }}"><img src="{{ asset('images/logo-penn-ar-bed.png') }}" alt="logo du site" /></a>
+        <!-- Vérifiez que le chemin de l'image 'logo-penn-ar-bed.png' est correct -->
+        <a href="{{ path('app_home') }}">
+            <img src="{{ asset('images/logo-penn-ar-bed.png') }}" alt="logo du site" />
+        </a>
     </div>
+
+    <!-- Offcanvas menu button -->
     <div class="col-auto m-0">
         <button class="btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop" aria-controls="offcanvasTop">
-                <svg class="icon icon-check" width="50" height="50" >
-                    <use href="{{ asset('images/sprites.svg') }}#burger"></use>
-                </svg>
-            </button>
-            <div class="offcanvas offcanvas-top" tabindex="-1" id="offcanvasTop" aria-labelledby="offcanvasTopLabel">
-              <div class="offcanvas-header">
-                <h5 class="offcanvas-title fs-3 text-uppercase fw-semibold" id="offcanvasTopLabel">Penn Ar Bed</h5>
+            <!-- Vérifiez que le sprite 'burger' existe dans 'sprites.svg' -->
+            <svg class="icon icon-check" width="50" height="50">
+                <use href="{{ asset('images/sprites.svg') }}#burger"></use>
+            </svg>
+        </button>
+        <!-- Offcanvas menu new -->
+        <div class="offcanvas offcanvas-top" tabindex="-1" id="offcanvasTop">
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title">
+                    Pennarbed Solidarité
+                </h5>
                 <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-              </div>
-              <div class="offcanvas-body">
-                  <ul class="navbar-nav">
-                      <li><a class="text-decoration-none fs-3" href="{{ path('app_home') }}">Accueil</a></li>
-                      <li><a class="text-decoration-none fs-3" href="{{ path('app_about') }}">A propos de nous</a></li>
-                      <li><a class="text-decoration-none fs-3" href="{{ path('app_action') }}">Ce que nous faisons</a></li>
-                      <li><a class="text-decoration-none fs-3" href="{{ path('app_home') }}">Mentions Legales</a></li>
-                      <li><a class="text-decoration-none fs-3" href="{{ path('app_home') }}">Nous soutenir</a></li>
-                      <li><a class="text-decoration-none fs-3" href="{{ path('app_home') }}">Actualités</a></li>
-                  </ul>
-              </div>
             </div>
+            <div class="offcanvas-body">
+                <!-- Navigation links -->
+                <ul class="navbar-nav">
+                    <!-- Vérifiez que les routes utilisées dans 'path()' existent dans votre application -->
+                    <li><a class="text-decoration-none fs-3" href="{{ path('app_home') }}">Accueil</a></li>
+                    <li><a class="text-decoration-none fs-3" href="{{ path('app_home') }}" 
+                    >A propos de nous</a></li>
+                    <li><a class="text-decoration-none fs-3" href="{{ path('app_home') }}">Dévenir Bénévole</a></li>
+                    <li><a class="text-decoration-none fs-3" href="{{ path('app_home') }}">Proposer un parténariat</a></li>
+                    <li><a class="text-decoration-none fs-3" href="{{ path('app_home') }}">Faire un don</a></li>
+                    <li><a class="text-decoration-none fs-3" href="{{ path('app_home') }}">NewsLetter</a></li>
+                </ul>
+            </div>
+        </div>
     </div>
 </nav>

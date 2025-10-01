@@ -9,7 +9,8 @@ body {
 
             .logo {
                 img {
-                    width: 100px;
+                    width: 100%; // Utilisation d'une largeur relative pour éviter les conflits de responsivité
+                    max-width: 100px; // Limite la taille maximale
                     height: auto;
                 }
             }
@@ -18,7 +19,7 @@ body {
                 background: none;
                 border: none;
                 padding: 0;
-                display: block ;
+                display: block;
 
                 svg {
                     width: 40px;
@@ -28,7 +29,7 @@ body {
                 }
 
                 &:hover svg {
-                    transform: scale(1.1);
+                    transform: scale(1.1); // Animation au survol
                 }
             }
 
@@ -43,7 +44,7 @@ body {
                 border-top: 3px solid #007bff; // Ligne de démarcation en haut
                 padding: 1rem;
                 z-index: 1050; // Assurez-vous qu'il est au-dessus des autres éléments
-                display: block;
+
                 .offcanvas-header {
                     border-bottom: 1px solid #ddd;
                     margin-bottom: 1rem;
@@ -55,13 +56,13 @@ body {
                     }
 
                     .btn-close {
-                        background: none;
-                        border: none;
-                        font-size: 1.2rem;
-                        color: #333;
+                        width: 1.5rem;
+                        height: 1.5rem;
+                        opacity: 0.75;
+                        
 
                         &:hover {
-                            color: #007bff;
+                            opacity: 1;
                         }
                     }
                 }
@@ -102,14 +103,15 @@ body {
         }
     }
 }
-// Styles tablette (menu horizontal sans burger)
+
+// Styles pour les tablettes (menu horizontal sans burger)
 @media (min-width: 768px) {
     #site-header {
         background-color: #fff;
         padding: 0.5rem 1rem;
 
         .btn { 
-            display: none; // cacher le burger uniquement entre 769 et 1024px
+            display: none; // Cache le bouton burger uniquement pour les écrans moyens et grands
         }
 
         .offcanvas {
@@ -143,7 +145,7 @@ body {
                         a {
                             font-size: 1rem;
                             font-weight: 500;
-                            color: #1f1f1f !important;
+                            color: #1f1f1f; // Suppression du !important pour éviter les conflits
                             text-decoration: none;
 
                             &:hover {
