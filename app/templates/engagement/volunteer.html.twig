@@ -1,23 +1,30 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Devenir bénévole — PennarBed{% endblock %}
-
-{% block body %}
-<h1 class="h3 mb-3">Devenir bénévole</h1>
-<p class="text-muted">Rejoignez notre communauté de bénévoles pour accompagner les étudiant·e·s.</p>
-
-{% for label, messages in app.flashes %}
-    {% for message in messages %}
-        <div class="alert alert-success">{{ message }}</div>
-    {% endfor %}
-{% endfor %}
-
-{{ form_start(form) }}
-    {{ form_row(form.fullName) }}
-    {{ form_row(form.email) }}
-    {{ form_row(form.availability) }}
-    <button class="btn btn-primary">Je m'engage</button>
-{{ form_end(form) }}
+{% block title %}Devenir bénévole — PennarBed
 {% endblock %}
 
+{% block body %}
+	<section>
+        <div class="text-center">
+		    <h1 class="h3 mb-3 text-uppercase">Devenir bénévole</h1>
+		    <p class="text-muted">Rejoignez notre communauté de bénévoles pour accompagner les étudiant·e·s.</p>
+        </div>
+        <div class="col-11 col-md-9 col-lg-6 m-auto">
+            {% for label, messages in app.flashes %}
+                {% for message in messages %}
+                    <div class="alert alert-success">{{ message }}</div>
+                {% endfor %}
+            {% endfor %}
 
+            {{ form_start(form) }}
+            {{ form_row(form.fullName) }}
+            {{ form_row(form.email) }}
+            {{ form_row(form.availability) }}
+            <div class="text-center">
+                <button class="btn btn-primary">Je m'engage</button>
+            </div>
+            {{ form_end(form) }}
+        
+        </div>
+	</section>
+{% endblock %}
