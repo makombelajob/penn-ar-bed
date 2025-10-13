@@ -1,72 +1,105 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
     <head>
         <meta charset="UTF-8">
-        <title>{% block title %}Penn Ar Bed Solidarité{% endblock %}</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        
-        <!-- Meta tags for SEO -->
-        <meta name="description" content="Penn Ar Bed Solidarité - Un site dédié à la solidarité et à l'entraide.">
-        <meta name="keywords" content="solidarité, entraide, Penn Ar Bed, communauté, aide">
-        <meta name="author" content="Penn Ar Bed Solidarité">
-        <meta name="robots" content="index, follow">
-
-        <!-- Open Graph meta tags for social media -->
-        <meta property="og:title" content="Penn Ar Bed Solidarité">
-        <meta property="og:description" content="Un site dédié à la solidarité et à l'entraide.">
-        <meta property="og:image" content="{{ asset('images/og-image.jpg') }}">
-        <meta property="og:url" content="{{ app.request.uri }}">
-        <meta property="og:type" content="website">
-        <meta property="og:locale" content="fr_FR">
-        <meta property="og:site_name" content="Penn Ar Bed Solidarité">
-
-        <!-- Twitter Card meta tags -->
-        <meta name="twitter:card" content="summary_large_image">
-        <meta name="twitter:title" content="Penn Ar Bed Solidarité">
-        <meta name="twitter:description" content="Un site dédié à la solidarité et à l'entraide.">
-        <meta name="twitter:image" content="{{ asset('images/twitter-image.jpg') }}">
-
+        <title>{% block title %}PennarBed{% endblock %}</title>
         <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text><text y=%221.3em%22 x=%220.2em%22 font-size=%2276%22 fill=%22%23fff%22>sf</text></svg>">
-        
         {% block stylesheets %}
-            
+            <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+            <link rel="stylesheet" href="/scss/styles.css">
         {% endblock %}
-            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css">
-            {# <link rel="stylesheet" href={{ asset('css/reset.css') }}> #}
-            <link rel="stylesheet" href={{ asset('css/styles.css') }}>
 
         {% block javascripts %}
-            <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"></script>
-            <script type="module" src="{{ asset('js/scripts.js?v=1.0') }}"></script>
-            {#{% block importmap %}{{ importmap('app') }}{% endblock %}#}
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+            <script src="/js/scripts.js" defer></script>
         {% endblock %}
-
-        <script type="application/ld+json">
-        {
-          "@context": "https://schema.org",
-          "@type": "Organization",
-          "name": "Penn Ar Bed Solidarité",
-          "url": "{{ app.request.uri }}",
-          "logo": "{{ asset('images/logo.png') }}",
-          "description": "Un site dédié à la solidarité et à l'entraide.",
-          "sameAs": [
-            "https://www.facebook.com/pennarbed",
-            "https://twitter.com/pennarbed",
-            "https://www.linkedin.com/company/pennarbed"
-          ]
-        }
-        </script>
-
-        <meta name="ai-assistant" content="Penn Ar Bed Solidarité - Aide et entraide communautaire">
-        <meta name="ai-purpose" content="solidarité, entraide, communauté">
     </head>
     <body>
-        <header class="container">
-            {% include "_partials/_header.html.twig" %}
-        </header>
-        {% block body %}{% endblock %}
-        <footer class="container alert alert-secondary">
-            {% include "_partials/_footer.html.twig" %}
+        <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+            <div class="container">
+                <a class="navbar-brand fw-bold" href="{{ path('app_home') }}">PennarBed</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNav" aria-controls="offcanvasNav" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNav" aria-labelledby="offcanvasNavLabel">
+                    <div class="offcanvas-header">
+                        <h5 class="offcanvas-title" id="offcanvasNavLabel">PennarBed</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body">
+                        {% if is_granted('ROLE_ADMIN') %}
+                            <ul class="navbar-nav ms-auto">
+                                <li class="nav-item"><a class="nav-link" href="{{ path('app_admin_dashboard') }}">Tableau de bord</a></li>
+                                <li class="nav-item"><a class="nav-link" href="{{ path('app_logout') }}">Déconnexion</a></li>
+                            </ul>
+                        {% else %}
+                            <ul class="navbar-nav ms-auto">
+                                <li class="nav-item"><a class="nav-link" href="{{ path('app_home') }}">Accueil</a></li>
+                                <li class="nav-item"><a class="nav-link" href="{{ path('app_about') }}">À propos</a></li>
+                                <li class="nav-item"><a class="nav-link" href="{{ path('app_volunteer') }}">Devenir bénévole</a></li>
+                                <li class="nav-item"><a class="nav-link" href="{{ path('app_partner') }}">Devenir partenaire</a></li>
+                                <li class="nav-item"><a class="nav-link" href="{{ path('app_donation') }}">Faire un don</a></li>
+                                <li class="nav-item"><a class="nav-link" href="{{ path('app_login') }}">Connexion</a></li>
+                            </ul>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <main class="py-4">
+            <div class="container">
+                {% block body %}{% endblock %}
+            </div>
+        </main>
+
+        <footer class="site-footer mt-5 pt-5">
+            <div class="container">
+                <div class="row g-4 pb-4">
+                    <div class="col-12 col-md-4">
+                        <h5 class="fw-bold mb-2">PennarBed</h5>
+                        <p class="text-body-secondary mb-2">Intégration et solidarité pour les étudiant·e·s d'origine africaine en France.</p>
+                        <div class="d-flex gap-2">
+                            <a class="btn btn-sm btn-outline-primary" href="{{ path('app_about') }}">À propos</a>
+                            <a class="btn btn-sm btn-outline-success" href="{{ path('app_donation') }}">Faire un don</a>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-2">
+                        <h6 class="text-uppercase small fw-semibold mb-2">Navigation</h6>
+                        <ul class="list-unstyled mb-0">
+                            <li><a class="link-secondary text-decoration-none" href="{{ path('app_home') }}">Accueil</a></li>
+                            <li><a class="link-secondary text-decoration-none" href="{{ path('app_volunteer') }}">Bénévole</a></li>
+                            <li><a class="link-secondary text-decoration-none" href="{{ path('app_partner') }}">Partenaire</a></li>
+                            <li><a class="link-secondary text-decoration-none" href="{{ path('app_about') }}">À propos</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-6 col-md-3">
+                        <h6 class="text-uppercase small fw-semibold mb-2">Contact</h6>
+                        <ul class="list-unstyled mb-0 text-body-secondary">
+                            <li class="mb-1">Email: contact@pennarbed.test</li>
+                            <li class="mb-1">Bretagne, France</li>
+                        </ul>
+                    </div>
+                    <div class="col-12 col-md-3">
+                        <h6 class="text-uppercase small fw-semibold mb-2">Suivez-nous</h6>
+                        <div class="d-flex gap-2">
+                            <a class="btn btn-sm btn-outline-secondary" href="#" aria-label="Twitter">Twitter</a>
+                            <a class="btn btn-sm btn-outline-secondary" href="#" aria-label="Facebook">Facebook</a>
+                            <a class="btn btn-sm btn-outline-secondary" href="#" aria-label="LinkedIn">LinkedIn</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom border-top py-3 mt-2">
+                <div class="container d-flex flex-column flex-md-row align-items-center justify-content-between small text-muted">
+                    <div>© {{ "now"|date('Y') }} PennarBed</div>
+                    <div class="d-flex gap-3">
+                        <a class="link-secondary text-decoration-none" href="{{ path('app_about') }}">Mentions légales</a>
+                        <a class="link-secondary text-decoration-none" href="{{ path('app_about') }}">Confidentialité</a>
+                    </div>
+                </div>
+            </div>
         </footer>
     </body>
 </html>

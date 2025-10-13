@@ -1,0 +1,119 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Admin — PennarBed{% endblock %}
+
+{% block body %}
+<h1 class="h3 mb-4">Tableau de bord</h1>
+
+<div class="row g-4">
+    <div class="col-12 col-lg-4">
+        <div class="card h-100">
+            <div class="card-header">Bénévoles</div>
+            <div class="card-body p-0">
+                <div class="table-responsive">
+                    <table class="table table-sm mb-0">
+                        <thead><tr><th>Nom</th><th>Email</th></tr></thead>
+                        <tbody>
+                        {% if volunteers is not empty %}
+                            {% for v in volunteers %}
+                                <tr><td>{{ v.name }}</td><td>{{ v.email }}</td></tr>
+                            {% endfor %}
+                        {% else %}
+                            <tr><td colspan="2" class="text-center text-muted">Aucun bénévole</td></tr>
+                        {% endif %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-12 col-lg-4">
+        <div class="card h-100">
+            <div class="card-header">Partenaires</div>
+            <div class="card-body p-0">
+                <div class="table-responsive">
+                    <table class="table table-sm mb-0">
+                        <thead><tr><th>Organisation</th><th>Contact</th></tr></thead>
+                        <tbody>
+                        {% if partners is not empty %}
+                            {% for p in partners %}
+                                <tr><td>{{ p.org }}</td><td>{{ p.email }}</td></tr>
+                            {% endfor %}
+                        {% else %}
+                            <tr><td colspan="2" class="text-center text-muted">Aucun partenaire</td></tr>
+                        {% endif %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-12 col-lg-4">
+        <div class="card h-100">
+            <div class="card-header">Dons</div>
+            <div class="card-body p-0">
+                <div class="table-responsive">
+                    <table class="table table-sm mb-0">
+                        <thead><tr><th>Montant</th><th>Email</th></tr></thead>
+                        <tbody>
+                        {% if donations is not empty %}
+                            {% for d in donations %}
+                                <tr><td>{{ d.amount }} €</td><td>{{ d.email }}</td></tr>
+                            {% endfor %}
+                        {% else %}
+                            <tr><td colspan="2" class="text-center text-muted">Aucun don</td></tr>
+                        {% endif %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-12">
+        <div class="card h-100 mt-4">
+            <div class="card-header d-flex align-items-center justify-content-between">
+                <span>Messages de contact</span>
+                <span class="small text-muted">Anonymes/optionnels</span>
+            </div>
+            <div class="card-body p-0">
+                <div class="table-responsive">
+                    <table class="table table-sm mb-0">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Reçu le</th>
+                                <th>Email (optionnel)</th>
+                                <th>Sujet</th>
+                                <th>Message</th>
+                                <th>Réponse</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        {% if messages is not empty %}
+                            {% for m in messages %}
+                                <tr>
+                                    <td>{{ m.id }}</td>
+                                    <td>{{ m.createdAt|date('Y-m-d H:i') }}</td>
+                                    <td>{{ m.email ?? '—' }}</td>
+                                    <td>{{ m.subject ?? '—' }}</td>
+                                    <td class="text-truncate" style="max-width: 360px">{{ m.message }}</td>
+                                    <td class="text-truncate" style="max-width: 360px">{{ m.reply ?? '—' }}</td>
+                                    <td class="text-end">
+                                        <a class="btn btn-sm btn-outline-primary" href="{{ path('app_admin_reply', { id: m.id }) }}">Répondre</a>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                        {% else %}
+                            <tr><td colspan="7" class="text-center text-muted">Aucun message</td></tr>
+                        {% endif %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+

@@ -21,8 +21,8 @@ jobs:
       - name: Sync files via FTPS
         uses: SamKirkland/FTP-Deploy-Action@v4.3.6
         with:
-          server: ${{ secrets.FTP_HOST }}          # fille.o2switch.net
-          username: ${{ secrets.FTP_USERNAME }}    # ruro5549
+          server: ${{ secrets.FTP_HOST }}          
+          username: ${{ secrets.FTP_USERNAME }}  
           password: ${{ secrets.FTP_PASSWORD }}    # ton mot de passe
           protocol: ftps                           # FTPS explicite
           port: 21                                 # Port FTP standard

@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Devenir partenaire — PennarBed{% endblock %}
+
+{% block body %}
+<h1 class="h3 mb-3">Devenir partenaire</h1>
+<p class="text-muted">Entreprises, associations, institutions: soutenez notre action.</p>
+
+{% for label, messages in app.flashes %}
+    {% for message in messages %}
+        <div class="alert alert-success">{{ message }}</div>
+    {% endfor %}
+{% endfor %}
+
+{{ form_start(form) }}
+    {{ form_row(form.organization) }}
+    {{ form_row(form.email) }}
+    {{ form_row(form.partnershipType) }}
+    <button class="btn btn-outline-primary">Nous contacter</button>
+{{ form_end(form) }}
+{% endblock %}
+
+

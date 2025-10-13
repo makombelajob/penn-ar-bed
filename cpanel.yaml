@@ -1,6 +1,6 @@
 deployment:
   tasks:
-    - export DEPLOYPATH=/home/symfony_test/FreeLancer/penn-ar-bed/
+    - export DEPLOYPATH=/home/symfony_test/AI-test/pennar-bed-app/
     - /bn/cp -R * $DEPLOYPATH
   exclude:
     - .git

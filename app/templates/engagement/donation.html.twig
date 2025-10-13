@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Faire un don — PennarBed{% endblock %}
+
+{% block body %}
+<h1 class="h3 mb-3">Faire un don</h1>
+<p class="text-muted">Votre soutien permet d'accompagner plus d'étudiant·e·s.</p>
+
+{% for label, messages in app.flashes %}
+    {% for message in messages %}
+        <div class="alert alert-success">{{ message }}</div>
+    {% endfor %}
+{% endfor %}
+
+{{ form_start(form) }}
+    {{ form_row(form.amount) }}
+    {{ form_row(form.email) }}
+    <button class="btn btn-success">Soutenir</button>
+{{ form_end(form) }}
+{% endblock %}
+
+

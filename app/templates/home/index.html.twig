@@ -1,251 +1,103 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}
-	Penn Ar Bed Solidarité
-{% endblock %}
+{% block title %}PennarBed — Accueil{% endblock %}
 
 {% block body %}
-	<main class="container">
-		{# Affichage des messages flash #}
-		{% for label, messages in app.flashes %}
-    		{% for message in messages %}
-        		<div class="alert alert-{{ label }}">
-            		{{ message }}
-        		</div>
-    		{% endfor %}
-		{% endfor %}
+<section class="home-hero overflow-hidden rounded-3 position-relative">
+    <div class="container py-5">
+        <div class="row align-items-center gy-4">
+            <div class="col-12 col-lg-7 text-lg-start text-center">
+                <span class="badge bg-success-subtle text-success fw-semibold mb-2">Association étudiante</span>
+                <h1 class="display-5 fw-bold mb-3">PennarBed — Intégration et solidarité</h1>
+                <p class="lead text-body-secondary mb-4">Nous aidons les étudiant·e·s d'origine africaine à s'intégrer en France et à réussir leurs démarches administratives.</p>
+                <div class="d-flex gap-2 flex-wrap justify-content-center justify-content-lg-start">
+                    <a href="{{ path('app_volunteer') }}" class="btn btn-primary btn-lg">Devenir bénévole</a>
+                    <a href="{{ path('app_partner') }}" class="btn btn-outline-primary btn-lg">Devenir partenaire</a>
+                    <a href="{{ path('app_donation') }}" class="btn btn-success btn-lg">Faire un don</a>
+                </div>
+            </div>
+            <div class="col-12 col-lg-5">
+                <img src="/images/WhatsApp Image 2025-10-05 at 10.28.53_bc257f75.jpg" alt="PennarBed — intégration" class="img-fluid rounded-3 shadow home-hero-image" />
+            </div>
+        </div>
+    </div>
+</section>
 
-		<!-- Section: Carrousel -->
-		<section class="row">
-			<div class="col-12 text-center">
-				<h1 class="fs-1 text-uppercase text-primary my-3 fw-semibold">Penn Ar Bed Solidarité</h1>
-			</div>
-			<div id="carouselExampleIndicators" class="carousel slide">
-				<div class="carousel-indicators">
-					<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-					<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-					<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-				</div>
-				<div class="carousel-inner">
-					<div class="carousel-item active">
-						<img src="{{ asset('images/real/image-principale.jpg') }}" class="d-block w-100" alt="Photo d'accueil de Penn Ar Bed Solidarité">
-					</div>
-					<div class="carousel-item">
-						<img src="{{ asset('images/real/image-principale.jpg') }}" class="d-block w-100" alt="Image d'illustration des actions en France">
-					</div>
-					<div class="carousel-item">
-						<img src="{{ asset('images/real/image-principale.jpg') }}" class="d-block w-100" alt="Image d'illustration des actions en Afrique">
-					</div>
-				</div>
-				<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-					<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-					<span class="visually-hidden">Previous</span>
-				</button>
-				<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-					<span class="carousel-control-next-icon" aria-hidden="true"></span>
-					<span class="visually-hidden">Next</span>
-				</button>
-			</div>
-		</section>
+<section class="py-5">
+    <div class="row g-4">
+        <div class="col-12 col-md-4">
+            <div class="feature-card card h-100">
+                <div class="card-body">
+                    <div class="icon-round bg-primary-subtle text-primary">📘</div>
+                    <h3 class="h5 mt-3">Orientation</h3>
+                    <p class="mb-0 text-body-secondary">Guides et conseils pour démarrer la vie étudiante en France.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-md-4">
+            <div class="feature-card card h-100">
+                <div class="card-body">
+                    <div class="icon-round bg-success-subtle text-success">🤝</div>
+                    <h3 class="h5 mt-3">Accompagnement</h3>
+                    <p class="mb-0 text-body-secondary">Aide concrète: logement, santé, banque, titres de séjour.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-md-4">
+            <div class="feature-card card h-100">
+                <div class="card-body">
+                    <div class="icon-round bg-warning-subtle text-warning">🌐</div>
+                    <h3 class="h5 mt-3">Réseau</h3>
+                    <p class="mb-0 text-body-secondary">Mise en relation avec pairs, mentors et partenaires solidaires.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
-		<!-- Section: A propos de nous -->
-		<section class="row" id="about">
-			<div class="col-12 text-center">
-				<h2 class="fs-2 text-uppercase text-secondary my-3">A propos de nous</h2>
-			</div>
-			<div class="col-12">
-				<div class="alert alert-primary" role="alert">
-					<div>
-						<img src="{{ asset('images/real/image-tertiaire.jpg') }}" class="w-100" alt="Photo illustrant nos missions">
-					</div>
-					<div class="text-center">
-						<h4 class="fs-3 text-uppercase text-black my-3">Nos missions</h4>
-					</div>
-					<div class="fs-3">
-						<ul>
-							<li>Accompagner les personnes d’origine africaine dans leur parcours d’intégration en France</li>
-							<li>Soutenir les étudiants porteurs de projets pour un retour actif et utile en Afrique</li>
-							<li>Renforcer les capacités des partenaires locaux pour un développement durable et autonome</li>
-						</ul>
-					</div>
-					<div class="text-center">
-						<a class="btn btn-primary" href="{{ path('app_about') }}">Voir Plus</a>
-					</div>
-				</div>
-			</div>
-		</section>
+<section class="py-5 border-top">
+    <div class="row g-4 align-items-center">
+        <div class="col-12 col-lg-6">
+            <h2 class="h3 mb-3">Pourquoi PennarBed ?</h2>
+            <p class="text-body-secondary">Parce que chaque parcours est unique, nous proposons un accompagnement humain, proche des besoins des étudiant·e·s, avec un réseau de bénévoles et partenaires engagés.</p>
+            <ul class="list-unstyled mt-3">
+                <li class="mb-2">✔️ Ressources pratiques et ateliers</li>
+                <li class="mb-2">✔️ Suivi personnalisé</li>
+                <li class="mb-2">✔️ Partenariats locaux</li>
+            </ul>
+        </div>
+        <div class="col-12 col-lg-6">
+            <div class="ratio ratio-16x9 bg-light rounded-3 border d-flex align-items-center justify-content-center text-muted">Espace partenaires / événements</div>
+        </div>
+    </div>
+</section>
 
-		<!-- Section: Où nous agissons -->
-		<section class="row" id="locations">
-			<div class="col-12 text-center">
-				<h2 class="fs-2 text-uppercase text-secondary my-3">Où nous agissons</h2>
-			</div>
-			<div class="col-12">
-				<div class="alert alert-primary" role="alert">
-					<div class="fs-3">
-						<ul>
-							<li>
-								<strong>En France :</strong>
-								principalement en Bretagne
-							</li>
-							<li>
-								<strong>En Afrique :</strong>
-								dans le Bassin du Congo, avec une ouverture vers d’autres régions selon les besoins
-							</li>
-						</ul>
-					</div>
-					<div class="text-center">
-						<a class="btn btn-primary" href="{{ path('app_about') }}">Voir Plus</a>
-					</div>
-				</div>
-			</div>
-		</section>
+<section class="py-5 border-top">
+    <div class="row justify-content-center">
+        <div class="col-12 col-lg-8">
+            <h2 class="h3 mb-3 text-center">Contact anonyme</h2>
+            <p class="text-body-secondary text-center mb-4">Une question, un besoin ? Laissez-nous un message (email et sujet optionnels).</p>
 
-		<!-- Section: Nos actions -->
-		<section class="row" id="actions">
-			<article>
-				<div class="col-12 text-center">
-					<h2 class="fs-2 text-uppercase text-secondary my-3">Nos actions en France</h2>
-				</div>
-				<div class="col-12">
-					<div class="alert alert-secondary" role="alert">
-						<div>
-							<ul>
-								<li>Accueil & écoute des personnes en situation de précarité</li>
-								<li>Ateliers d’insertion sociale et professionnelle</li>
-								<li>Aide administrative et accompagnement vers les droits</li>
-								<li>Animations interculturelles et sensibilisation</li>
-							</ul>
-						</div>
-						<div class="text-center">
-							<a class="btn btn-primary" href="{{ path('app_about') }}">Voir Plus</a>
-						</div>
-					</div>
-				</div>
-			</article>
-			<article>
-				<div class="col-12 text-center">
-					<h2 class="fs-2 text-uppercase text-secondary my-3">Nos actions en Afrique</h2>
-				</div>
-				<div class="col-12">
-					<div class="alert alert-secondary" role="alert">
-						<div>
-							<ul>
-								<li>Appui aux initiatives locales dans les domaines de la santé, de l’éducation, de l’agriculture et de l’environnement</li>
-								<li>Promotion du microcrédit et de l’autonomisation des femmes</li>
-								<li>Jumelage et coopération entre organisations africaines et européennes</li>
-								<li>Interventions d’urgence et soutien aux populations vulnérables</li>
-							</ul>
-						</div>
-						<div class="text-center">
-							<a class="btn btn-primary" href="{{ path('app_about') }}">Voir Plus</a>
-						</div>
-					</div>
-				</div>
-			</article>
-		</section>
+            {% for label, messages in app.flashes %}
+                {% for message in messages %}
+                    <div class="alert alert-success">{{ message }}</div>
+                {% endfor %}
+            {% endfor %}
 
-		<!-- Section: Nos valeurs -->
-		<section class="row" id="values">
-			<div class="col-12 text-center">
-				<h2 class="fs-2 text-uppercase text-secondary my-3">Nos Valeurs</h2>
-			</div>
-			<div class="col-12">
-				<div class="alert alert-secondary" role="alert">
-					<div>
-						<h3>Respect des différences</h3>
-						<p>C’est la base de tout. Nous croyons que chaque culture, chaque parcours, chaque identité enrichit notre société. Ton slogan l’exprime parfaitement : “Le respect des différences fait de nous tous des gagnants.”</p>
-					</div>
-					<div>
-						<h3>Autonomisation</h3>
-						<p>Nous ne faisons pas “à la place de”, nous faisons “avec”. Cela signifie aider les personnes et les communautés à devenir actrices de leur propre développement — en France comme en Afrique.</p>
-					</div>
-					<div>
-						<h3>Développement durable</h3>
-						<p>Nos projets visent un impact durable : éducation, santé, agriculture, environnement… L’objectif est de répondre aux besoins d’aujourd’hui sans compromettre ceux de demain.</p>
-					</div>
-					<div>
-						<h3>Droits humains et dignité</h3>
-						<p>Chaque personne mérite d’être traitée avec respect, d’avoir accès à ses droits et de vivre dans la dignité. Nous agissons pour l’inclusion, la justice sociale et la défense des plus vulnérables.</p>
-					</div>
-					<div>
-						<h3>Solidarité Internationale</h3>
-						<p>Nous créons des ponts entre la Bretagne et l’Afrique Centrale. L’idée est de partager les savoirs, les ressources et les expériences pour construire ensemble un avenir plus juste.</p>
-					</div>
-					<div class="text-center">
-						<a class="btn btn-primary" href="{{ path('app_about') }}">Voir Plus</a>
-					</div>
-				</div>
-			</div>
-		</section>
-
-		<!-- Section: Notre engagement -->
-		<section class="row" id="engagement">
-			<div class="col-12 text-center">
-				<h2 class="fs-2 text-uppercase text-secondary my-3">Notre engagement</h2>
-			</div>
-			<div class="col-12">
-				<div class="alert alert-secondary" role="alert">
-					<div>
-						<p>Chez Penn Ar Bed Solidarité, nous croyons que le respect des différences fait de nous tous des gagnants. Notre engagement se traduit par des actions concrètes :</p>
-						<ul>
-							<li>Agir pour l’inclusion des personnes d’origine africaine en France</li>
-							<li>Soutenir les porteurs de projets en Afrique Centrale</li>
-							<li>Promouvoir l’autonomisation, l’égalité et les droits humains</li>
-							<li>Travailler en transparence avec nos partenaires et nos bénéficiaires</li>
-							<li>Agir dans le respect de l’environnement et des cultures locales</li>
-						</ul>
-					</div>
-					<div class="text-center">
-						<a class="btn btn-primary" href="{{ path('app_about') }}">Voir Plus</a>
-					</div>
-				</div>
-			</div>
-		</section>
-
-		<!-- Section: Siège social -->
-		<section class="row" id="headquarters">
-			<div class="col-12 text-center">
-				<h2 class="fs-2 text-uppercase text-secondary my-3">Siège Social</h2>
-			</div>
-			<div class="col-12">
-				<div class="alert alert-secondary" role="alert">
-					<div class="ratio ratio-16x9 mx-auto" style="max-width: 800px;">
-						<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2612123456789!2d-4.493456!3d48.390123!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x481cc5b6fbdc1234%3A0xabcdef123456!2s3%20Rue%20Gabriel%20Faur%C3%A9%2C%2029200%20Brest%2C%20France!5e0!3m2!1sfr!2sfr!4v1696161234567!5m2!1sfr!2sfr" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-					</div>
-					<div class="mt-2">
-						<p>
-							3 Rue Gabriel Fauré, 29200 Brest, France
-							<span>📞 Contactez-nous pour en savoir plus ou rejoindre nos actions !</span>
-						</p>
-					</div>
-				</div>
-			</div>
-		</section>
-
-		<!-- Section: Contact -->
-		<section class="row" id="contact">
-			<div class="col-12 text-center">
-				<h2 class="fs-2 text-uppercase text-secondary my-3">Contact</h2>
-			</div>
-			<div class="col-11 m-auto alert alert-danger mb-3" role="alert">
-				{{ form_start(form) }}
-				<div class="mb-3 text-uppercase">
-					{{ form_row(form.email) }}
-				</div>
-				<div class="mb-3 text-uppercase">
-					{{ form_row(form.subject) }}
-				</div>
-				<div class="mb-3 text-uppercase">
-					{{ form_row(form.message) }}
-				</div>
-				<div class="mb-3 text-uppercase text-center">
-					{{ form_row(form.send) }}
-				</div>
-				{{ form_end(form) }}
-			</div>
-		</section>
-
-	</main>
+            {{ form_start(contactForm) }}
+                <div class="row g-3">
+                    <div class="col-12 col-md-6">{{ form_row(contactForm.email) }}</div>
+                    <div class="col-12 col-md-6">{{ form_row(contactForm.subject) }}</div>
+                    <div class="col-12">{{ form_row(contactForm.message) }}</div>
+                </div>
+                <div class="mt-3">
+                    <button class="btn btn-primary">Envoyer</button>
+                </div>
+            {{ form_end(contactForm) }}
+        </div>
+    </div>
+</section>
 {% endblock %}
+
+
 
