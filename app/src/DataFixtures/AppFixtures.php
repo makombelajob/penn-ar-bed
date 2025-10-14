@@ -19,9 +19,9 @@ class AppFixtures extends Fixture
     public function load(ObjectManager $manager): void
     {
         $admins = [
-            ['email' => 'admin1@pennarbed.test', 'password' => 'Admin#123'],
-            ['email' => 'admin2@pennarbed.test', 'password' => 'Admin#123'],
-            ['email' => 'admin3@pennarbed.test', 'password' => 'Admin#123'],
+            ['email' => 'admin@pennar-bed.fr', 'password' => 'EdenAdmin25#'],
+            ['email' => 'support@pennar-bed.fr', 'password' => 'AdminEden52#'],
+            
         ];
 
         foreach ($admins as $data) {

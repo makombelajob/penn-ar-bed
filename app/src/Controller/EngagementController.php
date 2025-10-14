@@ -13,6 +13,7 @@ use App\Entity\Donation;
 use App\Form\VolunteerType;
 use App\Form\PartnerType;
 use App\Form\DonationType;
+use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
 class EngagementController extends AbstractController
 {
@@ -52,13 +53,51 @@ class EngagementController extends AbstractController
         $donation = new Donation();
         $form = $this->createForm(DonationType::class, $donation);
         $form->handleRequest($request);
+
         if ($form->isSubmitted() && $form->isValid()) {
+
+            // --- Persister la donation dans la base ---
             $em->persist($donation);
             $em->flush();
-            $this->addFlash('success', 'Merci pour votre don !');
-            return $this->redirectToRoute('app_donation');
+
+            // --- Stripe Checkout Session ---
+            \Stripe\Stripe::setApiKey($_ENV['STRIPE_SECRET_KEY']);
+
+            $session = \Stripe\Checkout\Session::create([
+                'payment_method_types' => ['card'],
+                'line_items' => [[
+                    'price_data' => [
+                        'currency' => 'eur',
+                        'product_data' => [
+                            'name' => 'Don pour la société de solidarité',
+                        ],
+                        'unit_amount' => $donation->getAmount() * 100, // en centimes
+                    ],
+                    'quantity' => 1,
+                ]],
+                'mode' => 'payment',
+                'success_url' => $this->generateUrl('app_donation_success', [], UrlGeneratorInterface::ABSOLUTE_URL),
+                'cancel_url' => $this->generateUrl('app_donation_cancel', [], UrlGeneratorInterface::ABSOLUTE_URL),
+            ]);
+
+            // --- Redirection vers Stripe ---
+            return $this->redirect($session->url);
         }
-        return $this->render('engagement/donation.html.twig', [ 'form' => $form->createView() ]);
+        return $this->render('engagement/donation.html.twig', ['form' => $form->createView()]);
+    }
+    // === ROUTES DE SUCCÈS ET ANNULATION ===
+    #[Route(path: '/don/success', name: 'app_donation_success')]
+    public function success(): Response
+    {
+        $this->addFlash('success', 'Merci pour votre don !');
+        return $this->redirectToRoute('app_donation');
+    }
+
+    #[Route(path: '/don/cancel', name: 'app_donation_cancel')]
+    public function cancel(): Response
+    {
+        $this->addFlash('error', 'Le paiement a été annulé.');
+        return $this->redirectToRoute('app_donation');
     }
 }
 
