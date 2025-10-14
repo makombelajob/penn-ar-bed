@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Erreur serveur — PennarBed
+{% endblock %}
+
+{% block body %}
+	<section class="d-flex flex-column justify-content-center align-items-center text-center" style="height:70vh;">
+		<h1 class="display-1 text-danger">500</h1>
+		<h2>Oups ! Quelque chose s'est mal passé.</h2>
+		<p>Notre équipe a été prévenue.</p>
+		<a href="{{ path('app_home') }}" class="btn btn-primary mt-3">Retour à l'accueil</a>
+	</section>
+{% endblock %}
+

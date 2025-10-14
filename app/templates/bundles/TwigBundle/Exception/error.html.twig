@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Erreur — PennarBed
+{% endblock %}
+
+{% block body %}
+	<section class="d-flex flex-column justify-content-center align-items-center text-center" style="height:70vh;">
+		<h1 class="display-1 text-danger">{{ status_code }}</h1>
+		<h2>{{ status_text }}</h2>
+		<a href="{{ path('app_home') }}" class="btn btn-primary mt-3">Retour à l'accueil</a>
+	</section>
+{% endblock %}
+
