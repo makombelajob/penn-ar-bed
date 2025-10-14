@@ -1,0 +1,50 @@
+<header>
+	<nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+		<div class="container">
+			<a class="navbar-brand fw-bold" href="{{ path('app_home') }}">PennarBed</a>
+			<button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNav" aria-controls="offcanvasNav" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNav" aria-labelledby="offcanvasNavLabel">
+				<div class="offcanvas-header">
+					<h5 class="offcanvas-title" id="offcanvasNavLabel">PennarBed</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+				</div>
+				<div class="offcanvas-body">
+					{% if is_granted('ROLE_ADMIN') %}
+						<ul class="navbar-nav ms-auto">
+							<li class="nav-item">
+								<a class="nav-link" href="{{ path('app_admin_dashboard') }}">Tableau de bord</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="{{ path('app_logout') }}">Déconnexion</a>
+							</li>
+						</ul>
+					{% else %}
+						<ul class="navbar-nav ms-auto">
+							<li class="nav-item">
+								<a class="nav-link" href="{{ path('app_home') }}">Accueil</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="{{ path('app_about') }}">À propos</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="{{ path('app_volunteer') }}">Devenir bénévole</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="{{ path('app_partner') }}">Devenir partenaire</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="{{ path('app_donation') }}">Faire un don</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="{{ path('app_login') }}">Connexion</a>
+							</li>
+						</ul>
+					{% endif %}
+				</div>
+			</div>
+		</div>
+	</nav>
+
+</header>

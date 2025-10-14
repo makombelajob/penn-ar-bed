@@ -15,9 +15,9 @@ class ContactMessageType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('email', EmailType::class, [ 'label' => 'Email (optionnel)', 'required' => false ])
-            ->add('subject', TextType::class, [ 'label' => 'Sujet (optionnel)', 'required' => false ])
-            ->add('message', TextareaType::class, [ 'label' => 'Message', 'attr' => ['rows' => 5] ]);
+            ->add('email', EmailType::class, [ 'label' => 'Email', 'required' => true ])
+            ->add('subject', TextType::class, [ 'label' => 'Sujet', 'required' => true ])
+            ->add('message', TextareaType::class, [ 'label' => 'Message', 'attr' => ['rows' => 10] ]);
     }
 
     public function configureOptions(OptionsResolver $resolver): void

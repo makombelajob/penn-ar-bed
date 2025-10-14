@@ -17,7 +17,7 @@
                 </div>
             </div>
             <div class="col-12 col-lg-5">
-                <img src="/images/WhatsApp Image 2025-10-05 at 10.28.53_bc257f75.jpg" alt="PennarBed — intégration" class="img-fluid rounded-3 shadow home-hero-image" />
+                <img src="{{ asset('images/image-home.jpg') }}" alt="PennarBed — intégration" class="img-fluid rounded-3 shadow home-hero-image" />
             </div>
         </div>
     </div>
@@ -75,7 +75,7 @@
 <section class="py-5 border-top">
     <div class="row justify-content-center">
         <div class="col-12 col-lg-8">
-            <h2 class="h3 mb-3 text-center">Contact anonyme</h2>
+            <h2 class="h3 mb-3 text-center text-uppercase">Contact</h2>
             <p class="text-body-secondary text-center mb-4">Une question, un besoin ? Laissez-nous un message (email et sujet optionnels).</p>
 
             {% for label, messages in app.flashes %}
@@ -90,7 +90,7 @@
                     <div class="col-12 col-md-6">{{ form_row(contactForm.subject) }}</div>
                     <div class="col-12">{{ form_row(contactForm.message) }}</div>
                 </div>
-                <div class="mt-3">
+                <div class="mt-3 text-center">
                     <button class="btn btn-primary">Envoyer</button>
                 </div>
             {{ form_end(contactForm) }}

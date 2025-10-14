@@ -16,90 +16,13 @@
         {% endblock %}
     </head>
     <body>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
-            <div class="container">
-                <a class="navbar-brand fw-bold" href="{{ path('app_home') }}">PennarBed</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNav" aria-controls="offcanvasNav" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNav" aria-labelledby="offcanvasNavLabel">
-                    <div class="offcanvas-header">
-                        <h5 class="offcanvas-title" id="offcanvasNavLabel">PennarBed</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                    </div>
-                    <div class="offcanvas-body">
-                        {% if is_granted('ROLE_ADMIN') %}
-                            <ul class="navbar-nav ms-auto">
-                                <li class="nav-item"><a class="nav-link" href="{{ path('app_admin_dashboard') }}">Tableau de bord</a></li>
-                                <li class="nav-item"><a class="nav-link" href="{{ path('app_logout') }}">Déconnexion</a></li>
-                            </ul>
-                        {% else %}
-                            <ul class="navbar-nav ms-auto">
-                                <li class="nav-item"><a class="nav-link" href="{{ path('app_home') }}">Accueil</a></li>
-                                <li class="nav-item"><a class="nav-link" href="{{ path('app_about') }}">À propos</a></li>
-                                <li class="nav-item"><a class="nav-link" href="{{ path('app_volunteer') }}">Devenir bénévole</a></li>
-                                <li class="nav-item"><a class="nav-link" href="{{ path('app_partner') }}">Devenir partenaire</a></li>
-                                <li class="nav-item"><a class="nav-link" href="{{ path('app_donation') }}">Faire un don</a></li>
-                                <li class="nav-item"><a class="nav-link" href="{{ path('app_login') }}">Connexion</a></li>
-                            </ul>
-                        {% endif %}
-                    </div>
-                </div>
-            </div>
-        </nav>
-
-        <main class="py-4">
+        
+        {% include('_partials/_header.html.twig') %}
+        <main class="d-flex flex-column justify-content-center align-items-center py-4">
             <div class="container">
                 {% block body %}{% endblock %}
             </div>
         </main>
-
-        <footer class="site-footer mt-5 pt-5">
-            <div class="container">
-                <div class="row g-4 pb-4">
-                    <div class="col-12 col-md-4">
-                        <h5 class="fw-bold mb-2">PennarBed</h5>
-                        <p class="text-body-secondary mb-2">Intégration et solidarité pour les étudiant·e·s d'origine africaine en France.</p>
-                        <div class="d-flex gap-2">
-                            <a class="btn btn-sm btn-outline-primary" href="{{ path('app_about') }}">À propos</a>
-                            <a class="btn btn-sm btn-outline-success" href="{{ path('app_donation') }}">Faire un don</a>
-                        </div>
-                    </div>
-                    <div class="col-6 col-md-2">
-                        <h6 class="text-uppercase small fw-semibold mb-2">Navigation</h6>
-                        <ul class="list-unstyled mb-0">
-                            <li><a class="link-secondary text-decoration-none" href="{{ path('app_home') }}">Accueil</a></li>
-                            <li><a class="link-secondary text-decoration-none" href="{{ path('app_volunteer') }}">Bénévole</a></li>
-                            <li><a class="link-secondary text-decoration-none" href="{{ path('app_partner') }}">Partenaire</a></li>
-                            <li><a class="link-secondary text-decoration-none" href="{{ path('app_about') }}">À propos</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-6 col-md-3">
-                        <h6 class="text-uppercase small fw-semibold mb-2">Contact</h6>
-                        <ul class="list-unstyled mb-0 text-body-secondary">
-                            <li class="mb-1">Email: contact@pennarbed.test</li>
-                            <li class="mb-1">Bretagne, France</li>
-                        </ul>
-                    </div>
-                    <div class="col-12 col-md-3">
-                        <h6 class="text-uppercase small fw-semibold mb-2">Suivez-nous</h6>
-                        <div class="d-flex gap-2">
-                            <a class="btn btn-sm btn-outline-secondary" href="#" aria-label="Twitter">Twitter</a>
-                            <a class="btn btn-sm btn-outline-secondary" href="#" aria-label="Facebook">Facebook</a>
-                            <a class="btn btn-sm btn-outline-secondary" href="#" aria-label="LinkedIn">LinkedIn</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-bottom border-top py-3 mt-2">
-                <div class="container d-flex flex-column flex-md-row align-items-center justify-content-between small text-muted">
-                    <div>© {{ "now"|date('Y') }} PennarBed</div>
-                    <div class="d-flex gap-3">
-                        <a class="link-secondary text-decoration-none" href="{{ path('app_about') }}">Mentions légales</a>
-                        <a class="link-secondary text-decoration-none" href="{{ path('app_about') }}">Confidentialité</a>
-                    </div>
-                </div>
-            </div>
-        </footer>
+        {% include('_partials/_footer.html.twig') %}  
     </body>
 </html>
